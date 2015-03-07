@@ -1,6 +1,5 @@
 PhillyOpenHealth::Application.routes.draw do
-  
-  get 'signup', to: 'users#new', as: 'signup'
+
   get 'signin', to: 'sessions#new', as: 'signin'
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
@@ -8,7 +7,7 @@ PhillyOpenHealth::Application.routes.draw do
   resources :users
 
   root 'static_pages#home'
-  
+
   get "static_pages/home"
   get "static_pages/help"
   resources :datasets
