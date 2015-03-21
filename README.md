@@ -22,6 +22,7 @@ Next, if you're on a Mac, make sure you have a Postgres server running locally (
 Then create a user. In the terminal type:
 
 ```
+rake db:create
 rake db:migrate
 
 rails c
