@@ -12,12 +12,8 @@
       .col-sm-9
         = f.text_field :name
     .form-group
-      = f.label :description, class: "col-sm-2 control-label"
+      = f.label :url, class: "col-sm-2 control-label"
       .col-sm-9
-        = f.text_area :description
-    .form-group
-      = f.label :homepageurl, class: "col-sm-2 control-label"
-      .col-sm-9
-        = f.text_field :homepageurl
+        = f.text_field :url
     .actions.col-sm-offset-2.col-sm-9
       = f.submit 'Save', class: "btn btn-large btn-info"

@@ -3,11 +3,10 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  def authorize
-    redirect_to signin_url, alert: "Not authorized" if current_user.nil?
+  def authenticate
+    redirect_to signin_url, alert: "Not authenticated" if current_user.nil?
   end
 
-  # Logs in the user.
   def signin(user)
     @user = user
     if @user.save

@@ -1,0 +1,40 @@
+.form-horizontal
+  = form_for @data_set do |f|
+    - if @data_set.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@data_set.errors.count, "error")} prohibited this data_set from being saved:"
+        %ul
+          - @data_set.errors.full_messages.each do |msg|
+            %li= msg
+
+    .form-group
+      = f.label :title, class: "col-sm-2 control-label"
+      .col-sm-9
+        = f.text_field :title
+    .form-group
+      = f.label :description, class: "col-sm-2 control-label"
+      .col-sm-9
+        = f.text_area :description
+    .form-group
+      = f.label :data_source, class: "col-sm-2 control-label"
+      .col-sm-9
+        = f.number_field :data_source
+    .form-group
+      = f.label :date_published, class: "col-sm-2 control-label"
+      .col-sm-9
+        = f.number_field :date_published
+    .form-group
+      = f.label :data_source, class: "col-sm-2 control-label"
+      .col-sm-9
+        = f.number_field :data_source
+    .form-group
+      = f.label :data_source, class: "col-sm-2 control-label"
+      .col-sm-9
+        = f.number_field :data_source
+
+
+
+
+    .actions.col-sm-offset-2.col-sm-9
+      = f.submit 'Save', class: "btn btn-large btn-info"
+

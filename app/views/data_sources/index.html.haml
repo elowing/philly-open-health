@@ -1,0 +1,21 @@
+%h1 Listing sources
+
+%table.table.table-striped
+  %tr
+    %th Name
+    %th URL
+    %th
+    %th
+    %th
+
+  - @data_sources.each do |data_source|
+    %tr
+      %td= data_source.name
+      %td= data_source.url
+      %td= link_to 'Show', data_source
+      %td= link_to 'Edit', edit_data_source_path(data_source), class: "btn btn-default"
+      %td= link_to 'Destroy', data_source, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-danger"
+
+
+= link_to 'New Data Source', new_data_source_path, class: "btn btn-info"
+

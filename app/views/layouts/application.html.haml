@@ -3,8 +3,8 @@
   %head
     %meta{:charset => "utf-8"}
     %title Philly Open Health
-    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
-    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application"
     = csrf_meta_tags
 
   %body
@@ -18,19 +18,17 @@
           %a.navbar-brand{:href => "/"} Philly Open Health
         #main-nav.collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li{:class => "#{'active' if current_page?(datasets_path)}"}= link_to 'Data sets', datasets_path
-            %li{:class => "#{'active' if current_page?(sources_path)}"}= link_to 'Sources', sources_path
+            %li{:class => "#{'active' if current_page?(data_sets_path)}"}= link_to 'Data sets', data_sets_path
+            %li{:class => "#{'active' if current_page?(data_sources_path)}"}= link_to 'Data sources', data_sources_path
             %li{:class => "#{'active' if current_page?(tags_path)}"}= link_to 'Tags', tags_path
           %ul.nav.navbar-nav.navbar-right
             - if current_user
               Signed in as #{current_user.email}.
               = link_to "Sign Out", signout_path
             - else
-              = link_to "Sign Up", signup_path
-              or
-              \#{link_to "Sign In", signin_path}
-            
+              = link_to "Sign In", signin_path
+
     - flash.each do |name, msg|
-      = content_tag :div, msg, id: "flash-#{name}"          
+      = content_tag :div, msg, id: "flash-#{name}"
 
     = yield
